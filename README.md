@@ -1,34 +1,39 @@
-# Roundhay - A movie recommendations system
+# Roundhay - A Movie Recommendation System
 
-Roundhay is a personalized hybrid recommendations system which combines both content-based filtering and collaborative filtering. 
+Roundhay is a personalized **hybrid recommendation system** which combines both **content-based filtering** and **collaborative filtering** to generate movie recommendations. This repository provides an overview of how the system works, its approaches, and important concepts used throughout the project.
 
-# Context
+---
 
-Recommendation systems are classified into:
+## Overview
 
-A) Content-Based Filtering: Recommends the items which are similar to what the user liked in the past by analyzing the item’s attributes.
+Recommender systems can generally be classified into three types:
 
-B) Collaborative Filtering: Recommends the items based on the user’s preferences; either user-based which finds the similar users with same likes or item-based which finds items that are often liked together.
+1. **Content-Based Filtering**  
+   Recommends items that share attributes or features with items the user has liked in the past.
 
-C) Hybrid Systems: Recommends the items by combining both content-based filtering and collaborative filtering to leverage the combined strengths of the individual filtering techniques.
+2. **Collaborative Filtering**  
+   Recommends items based on user preferences:
+   - **User-based**: Finds users with similar likes and suggests items they also liked.
+   - **Item-based**: Finds items that are frequently liked together.
 
-Pros of Hybrid Systems:
+3. **Hybrid Systems**  
+   Combines the strengths of content-based and collaborative filtering to produce better recommendations.
 
-* Accuracy: Better recommendations than the standalone systems.
-* Robustness: Combinations of the filtering methods minimizes the weakness of individual techniques.
+### Pros and Cons of Hybrid Systems
 
-Cons of Hybrid Systems:
+- **Pros**  
+  - **Accuracy**: Often yield better recommendations than standalone systems.  
+  - **Robustness**: Combining multiple methods helps minimize the weaknesses of each individual technique.
 
-* Complexity: Computationally expensive while implementing and maintaining multiple systems.
-* Tuning: Demands careful tuning of thresholds or weights to optimize performance.
+- **Cons**  
+  - **Complexity**: Can be computationally expensive to implement and maintain multiple systems.  
+  - **Tuning**: Requires careful optimization of thresholds or weights to achieve the best performance.
 
+---
 
-There are several approaches of hybrid systems. In this project, I have used weighted hybrid recommendations system.
+## Weighted Hybrid Recommendation System
 
-
-Weighted Hybrid Recommendations System:
-
-A hybrid recommendation technique which utilizes the weighted sum of separate recommendation scores. 
+In this project, we implement a **weighted hybrid recommendation system**, combining collaborative filtering and content-based filtering using a weighted score:
 
 Shybrid = w1 x Scollab + w2 x Scontent
 
@@ -38,26 +43,39 @@ Where,
 	Scontent = Score of Content based Filtering.
 	w1 + w2 = 1
 
-In this project, we predict how a user would rate an item based on ratings from similar users or items (Collaborative Filtering) and focuses on item attributes and the past interactions of the user (Content-based Filtering).
+Where:
+- \( Shybrid \) is the overall hybrid score.
+- \( Scollab \) is the score from collaborative filtering.
+- \( Scontent \) is the score from content-based filtering.
+- \( w1 + w2 = 1 \).
 
+The system predicts how a user would rate an item by:
+- Analyzing ratings from similar users/items (**Collaborative Filtering**).
+- Focusing on item attributes and a user’s past interactions (**Content-Based Filtering**).
 
-# Glossary:
+---
 
-A) Cosine Similarity:
+## Glossary
 
-A build-in function from sklearn which measures the similarity between two vectors which calculates the cosine angle between the vectors. 
+### A) Cosine Similarity
+
+A built-in function from `sklearn` that measures the similarity between two vectors by computing the cosine of the angle between them:
 
 Cosine_similary (A,B) = A • B / ||A|| x ||B||
 
-If cosine similarity = 1, the two vectors are exactly the same direction (Maximum similarity).
-If cosine  similarity = 0, the two vectors are perpendicular to each other (No similarity).
-If cosine  similarity = -1, the two vectors are opposite (For ratings only).
+- **1** implies the vectors have the same direction (maximum similarity).  
+- **0** implies the vectors are perpendicular (no similarity).  
+- **-1** implies the vectors are opposite (for ratings only).
 
-B) One-Hot Encoding:
+### B) One-Hot Encoding
 
-This encoding converts the categorical variable into binary form which can be provided to machine learning algorithms to improve predictions.
+A method of converting categorical variables into a binary vector, allowing machine learning algorithms to process and improve predictions.
 
+---
 
-Dataset:
+## Dataset
 
-MovieLens : https://grouplens.org/datasets/movielens/
+The dataset used in this project is from **MovieLens**, which provides a large set of user ratings and metadata for movies.  
+[MovieLens Dataset](https://grouplens.org/datasets/movielens/)
+
+---
