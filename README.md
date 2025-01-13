@@ -37,12 +37,6 @@ In this project, I have implemented a **weighted hybrid recommendation system**,
 
 Shybrid = w1 x Scollab + w2 x Scontent
 
-Where,
-	Shybrid = Score of Hybrid Systems (Weight sum of individual scores).
-	 Scollab = Score of Collabrative Filtering.
-	Scontent = Score of Content based Filtering.
-	w1 + w2 = 1
-
 Where:
 - \( Shybrid \) is the overall hybrid score.
 - \( Scollab \) is the score from collaborative filtering.
