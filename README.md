@@ -33,7 +33,7 @@ Recommender systems can generally be classified into three types:
 
 ## Weighted Hybrid Recommendation System
 
-In this project, we implement a **weighted hybrid recommendation system**, combining collaborative filtering and content-based filtering using a weighted score:
+In this project, I have implemented a **weighted hybrid recommendation system**, combining collaborative filtering and content-based filtering using a weighted score:
 
 Shybrid = w1 x Scollab + w2 x Scontent
 
