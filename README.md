@@ -63,7 +63,14 @@ Cosine_similary (A,B) = A • B / ||A|| x ||B||
 
 ### B) One-Hot Encoding
 
-A method of converting categorical variables into a binary vector, allowing machine learning algorithms to process and improve predictions.
+A method of converting categorical variables into a binary vector (0/1), allowing machine learning algorithms to process and improve predictions. For instance, each category (genre) becomes a separate column with binary values:
+
+* 1, if the movie belongs to that genre.
+* 0, if otherwise
+
+Below is the visual representation of One-Hot Encoding:
+
+<img width="701" alt="image" src="https://github.com/user-attachments/assets/12ebe3f6-2dc3-4979-9c40-cc5dc87f2e66" />
 
 ---
 
